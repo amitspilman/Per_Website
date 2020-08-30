@@ -1,0 +1,50 @@
+<?php
+session_start();
+
+if ( ! empty( $_POST ) ) {
+    if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) ) {
+        // Getting submitted user data from database
+        $con = new mysqli($db_host, $db_user, $db_pass, $db_name);
+        $stmt = $con->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->bind_param('s', $_POST['username']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    	$user = $result->fetch_object();
+
+    	// Verify user password and set $_SESSION
+    	if ( password_verify( $_POST['password'], $user->password ) ) {
+    		$_SESSION['user_id'] = $user->ID;
+    	}
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign-in</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/form.css">
+	<script src="../javascript/form.js"></script>
+</head>
+<body>
+	<h1>Sign-in</h1>
+	<div class="form">
+		<form action="..\php\sign-in.php" autocomplete="on" onsubmit="return signvalidation()" method = "POST">
+			<table>
+				<tr>
+					<th>Email:</th>
+					<th><input type="email" name="email" maxlength="25" placeholder="Enter your email" autofocus required></th>
+				</tr>
+				<tr>
+					<th>Password:</th>
+					<th><input oninput="minipasscheck()" id="pass1" type="password" name="password" placeholder="Enter your password" maxlength="8" required></th>
+				</tr>
+				<tr>
+					<th></th>
+					<th><input id="submit" type="submit" value="submit"></th>
+				</tr>
+			</table>
+		</form>
+	</form>
+</body>
+</html>

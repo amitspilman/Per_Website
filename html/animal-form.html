@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animal-Form</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/form.css">
+	<script src="../javascript/form.js"></script>
+</head>
+<body>
+	<h1>Animal-Form</h1>
+	<div class="form">
+		<form action="/action_page.php" autocomplete="on" onsubmit="return animalvalidation()">
+			<table>
+				<tr>
+					<th>Name:</th>
+					<th><input onchange="FNameCheck();" id="Fname" type="text" name="name" maxlength="10" placeholder="First Name" required></th>
+				</tr>
+				<tr>
+					<th>Birth-Date:</th>
+					<th><input type="date" name="date" maxlength="10" required></th>
+				</tr>
+				<tr>
+					<th>Animal Type:</th>
+					<th><input onchange="AnimalCheck();" id="animaltype" type="text" name="type" maxlength="25" placeholder="Animal Type..." required></th>
+				</tr>
+				<tr>
+					<th>Upload Pic:</th>
+					<td><input type="file" name="pic" accept="image/*"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th></th>
+					<th><input id="submit" type="submit" value="Submit"></th>
+				</tr>
+			</table>
+		</form>
+	</form>
+</body>
+</html>

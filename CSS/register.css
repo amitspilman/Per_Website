@@ -1,0 +1,18 @@
+h1 {
+	position: relative;
+	top: 20px;
+	color: black;
+	text-align: center;
+	font-size: 30px
+}
+.form {
+	position: absolute;
+	top: 30%;
+	left: 40%;
+	text-align: left;
+}
+#submit {
+	position: relative;
+	top: 20px;
+	left: 30px;
+}

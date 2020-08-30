@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contest-Form</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/form.css">
+	<script src="../javascript/form.js"></script>
+</head>
+<body>
+	<h1>Contest-Form</h1>
+	<div class="form">
+		<form action="/action_page.php" autocomplete="on" onsubmit="return contestvalidation()">
+			<table>
+				<tr>
+					<th>Name:</th>
+					<th><input onchange="FNameCheck()" id="Fname" type="text" name="name" maxlength="10" placeholder="First Name" required></th>
+				</tr>
+				<tr>
+					<th>Date:</th>
+					<th><input type="date" name="date" maxlength="10" required></th>
+				</tr>
+				<tr>
+					<th>Contest Type:</th>
+					<th><input id="contest-type" onchange="TypeCheck()" type="text" name="type" maxlength="25" placeholder="Contest Type..." required></th>
+				</tr>
+				<tr>
+					<th>Fee:</th>
+					<th><input type="number" name="fee" placeholder="Participation Fee" maxlength="4" min="0" required></th>
+				</tr>
+				<tr>
+					<th>Number of participant:</th>
+					<th><input type="number" name="participant" placeholder="Number of participant  ??" maxlength="8" min="0" required></th>
+				</tr>
+				<tr>
+					<th></th>
+					<th><input id="submit" type="submit" value="Submit"></th>
+				</tr>
+			</table>
+		</form>
+	</form>
+</body>
+</html>
